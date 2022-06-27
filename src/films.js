@@ -1,7 +1,4 @@
 
-
-
-
 // Exercise 1: Get the array of all directors.
 function getAllDirectors(array) {
   const result = movies.map((movie) => movie.director);
@@ -21,10 +18,10 @@ function moviesAverageOfDirector(array, director) {
   let nombreDirector = document.getElementById("nombreDirector2").value;
   let contador = 0;
   let puntos;
-  const result3 = movies.reduce( (puntosTotal, movie) => {
-    if(movie.director === nombreDirector &&  movie.score !== ""){
+  const result3 = movies.reduce( (puntosTotal, peli) => {
+    if(peli.director === nombreDirector &&  peli.score !== ""){
       contador++;
-      puntosTotal += movie.score;
+      puntosTotal += peli.score;
     }
     return puntosTotal; 
 
@@ -36,12 +33,32 @@ function moviesAverageOfDirector(array, director) {
 
 // Exercise 4:  Alphabetic order by title 
 function orderAlphabetically(array) {
- 
+  let result4 = movies.sort((a,b)  =>{
+    if (a.title < b.title){
+      return -1;
+    }
+    if (a.title > b.title){
+      return 1
+    }
+    return 0;
+  })
+  
+  console.log("EXERCICE 4 ->" ,result4.slice(0,20));
 }
 
 // Exercise 5: Order by year, ascending
 function orderByYear() {
-
+  let result5 = movies.sort((a,b)  =>{
+    if (a.year < b.year){
+      return -1;
+    }
+    if (a.year > b.year){
+      return 1
+    }
+    return 0;
+  })
+  
+  console.log("EXERCICE 4 ->" ,result5.slice(0,20));
 }
 
 // Exercise 6: Calculate the average of the movies in a category
