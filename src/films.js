@@ -1,4 +1,3 @@
-const movies = require("./data");
 
 // Exercise 1: Get the array of all directors.
 function getAllDirectors(array) {
@@ -90,10 +89,25 @@ function moviesAverageByCategory() {
 // Exercise 7: Modify the duration of movies to minutes
 function hoursToMinutes() {
   let arrayEnMin = [];
-  for (let i = 0 ; i < movies.length; i++){
-    movies[i].duration
-  }
+  let arrayMovie = movies.map((peli)=> peli)
+  let DurationMovie = arrayMovie.map((peli)=> {
+    return  { ...peli, duration: cambiandoDeHAMin(peli.duration) };
+  });
+
+  console.log(DurationMovie);
+  return DurationMovie;
 }
+ 
+function cambiandoDeHAMin(duration){
+ let horas = duration.split(" ");
+
+ let deHorasAMinutos = (horas * 60) 
+ console.log(horas);
+ console.log(quitarLetras);
+
+
+}
+
 
 // Exercise 8: Get the best film of a year
 function bestFilmOfYear() {
