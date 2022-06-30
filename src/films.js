@@ -94,39 +94,24 @@ function hoursToMinutes() {
     return  { ...peli, duration: cambiandoDeHAMin(peli.duration) };
   });
 
-  console.log(DurationMovie);
+  console.log('EXERCICE 7 -> ', DurationMovie);
   return DurationMovie;
 }
  
 function cambiandoDeHAMin(duration){
-  let dataHora =  duration.slice(0,5).split("h");
-  
-  let hora= Number();
-  let minuto =Number();
 
-  for(let i = 0 ; i < dataHora.length; i++ ){
-    if(i=== 0){
-      hora =dataHora[i];
-    }else if (i === 1 ){
-      minuto = dataHora[i];
-    }
-  }
+ const dataMovies = duration.split(' ');
+ let total = 0;
+ let hoursToMinutes = parseInt(dataMovies[0]) * 60;
+ let minutos;
 
-
- let deHorasAMinutos = (hora * 60 + minuto);
- let sumarMinutos =((deHorasAMinutos  ));
-
-// let result7 = dataHora.reduce((hora, minuto) =>{
-  //  hora + minuto
-// })
-
- //console.log('Reduce', result7);
- console.log(dataHora);
-
- console.log(typeof(sumarMinutos));
-
-
-
+if(dataMovies.length > 1){
+ minutos = parseInt(dataMovies[1]);
+ total += hoursToMinutes + minutos;
+}else{
+ total += hoursToMinutes;
+}
+ return total;
 }
 
 
