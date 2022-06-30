@@ -99,11 +99,32 @@ function hoursToMinutes() {
 }
  
 function cambiandoDeHAMin(duration){
- let horas = duration.split(" ");
+  let dataHora =  duration.slice(0,5).split("h");
+  
+  let hora= Number();
+  let minuto =Number();
 
- let deHorasAMinutos = (horas * 60) 
- console.log(horas);
- console.log(quitarLetras);
+  for(let i = 0 ; i < dataHora.length; i++ ){
+    if(i=== 0){
+      hora =dataHora[i];
+    }else if (i === 1 ){
+      minuto = dataHora[i];
+    }
+  }
+
+
+ let deHorasAMinutos = (hora * 60 + minuto);
+ let sumarMinutos =((deHorasAMinutos  ));
+
+// let result7 = dataHora.reduce((hora, minuto) =>{
+  //  hora + minuto
+// })
+
+ //console.log('Reduce', result7);
+ console.log(dataHora);
+
+ console.log(typeof(sumarMinutos));
+
 
 
 }
