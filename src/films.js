@@ -1,25 +1,33 @@
 
 // Exercise 1: Get the array of all directors.
 function getAllDirectors(array) {
-  const result = movies.map((movie) => movie.director);
+  const result = array.map((movie) => movie.director);
   console.log("EXERCICE 1 ->", result);
   return result;
 }
 
 // Exercise 2: Get the films of a certain director
 function getMoviesFromDirector(array, director) {
-  let nombreDirector = document.getElementById("nombreDirector").value;
-  const result2 = movies.filter(movie => movie.director == nombreDirector)
-  console.log("EXERCICE 2 ->",result2)
+
+  const result = array.filter(movie => movie.director === director);
+  
+  console.log("EXERCICE 2 ->",result);
+  return result;
+  
+  // const result = array.filter((movie) => movie.director === director);
+
+  // console.log('EXERCICE 2 ->', result);
+  // return result;
+  
 }
 
 // Exercise 3: Calculate the average of the films of a given director.
 function moviesAverageOfDirector(array, director) {
-  let nombreDirector = document.getElementById("nombreDirector2").value;
+ 
   let contador = 0;
   let puntos;
-  const result3 = movies.reduce( (puntosTotal, peli) => {
-    if(peli.director === nombreDirector &&  peli.score !== ""){
+  const result3 = array.reduce( (puntosTotal, peli) => {
+    if(peli.director === director &&  peli.score !== ""){
       contador++;
       puntosTotal += peli.score;
     }
@@ -33,7 +41,7 @@ function moviesAverageOfDirector(array, director) {
 
 // Exercise 4:  Alphabetic order by title 
 function orderAlphabetically(array) {
-  let result4 = movies.sort((a,b)  =>{
+  let result4 = array.sort((a,b)  =>{
     if (a.title < b.title){
       return -1;
     }
@@ -44,12 +52,12 @@ function orderAlphabetically(array) {
   })
   
   console.log("EXERCICE 4 ->" ,result4.slice(0,20));
-
+  return result4;
 }
 
 // Exercise 5: Order by year, ascending
-function orderByYear() {
-  let forYears = movies.sort((a,b) =>  {
+function orderByYear(array,year) {
+  let forYears = array.sort((a,b) =>  {
     return a.year - b.year;
   })
 let froAbc = forYears.sort((a,b)=> {
@@ -64,32 +72,39 @@ let froAbc = forYears.sort((a,b)=> {
   }
 })
   console.log("EXERCICE 5 ->" ,froAbc);
+  return froAbc;
 }
 
 // Exercise 6: Calculate the average of the movies in a category
-function moviesAverageByCategory() {
+function moviesAverageByCategory(array,category) {
+  // let contador = 0;
+  // let puntos;
+  // const result6 = array.reduce( (puntosTotal, peli) => {
+  //   if(peli.genre[length] === category &&  peli.score !== ""){
+  //     contador++;
+  //     puntosTotal += peli.score;
+  //   }
+  //   return puntosTotal; 
 
-  let categoria = document.getElementById("categoria").value;
-  let contador = 0;
-  let puntos;
-  const result6 = movies.reduce( (puntosTotal, peli) => {
-    if(peli.genre[length] == categoria &&  peli.score !== ""){
-      contador++;
-      puntosTotal += peli.score;
+  // }, 0)
+  // puntos = Number ((result6 / contador).toFixed(2));
+  // console.log("EXERCICE 6 ->" ,puntos);
+  // return puntos;
+  const genero= array.filter((movie) => {
+    if (movie.genre.includes(category)) {
+      return movie;
     }
-    return puntosTotal; 
+  });
 
-  }, 0)
-  puntos = Number ((result6 / contador).toFixed(2));
-  console.log("EXERCICE 6 ->" ,puntos);
-  return puntos;
+  console.log('EXERCICE 6 ->', moviesAverageOfDirector(genero));
+  return moviesAverageOfDirector(genero);
 }
 
 
 // Exercise 7: Modify the duration of movies to minutes
-function hoursToMinutes() {
-  let arrayEnMin = [];
-  let arrayMovie = movies.map((peli)=> peli)
+function hoursToMinutes(array) {
+
+  let arrayMovie = array.map((peli)=> peli)
   let DurationMovie = arrayMovie.map((peli)=> {
     return  { ...peli, duration: cambiandoDeHAMin(peli.duration) };
   });
@@ -116,8 +131,13 @@ if(dataMovies.length > 1){
 
 
 // Exercise 8: Get the best film of a year
-function bestFilmOfYear() {
-  
+function bestFilmOfYear(array,year) {
+
+  let filmsOfThisYear = array.filter(movie => movie.year == year);
+  let bestFilmOfYear2 = filmsOfThisYear.sort((a,b)=>{ b.score - a.score });
+  let maxScore = bestFilmOfYear2.slice(0,1);
+  console.log("EXERCICE 8 ->",maxScore );
+  return maxScore;
 }
 
 

@@ -37,6 +37,8 @@
   },
   "dependencies": {
     "browserify": "^17.0.0",
+    "runner": "^4.0.0",
+    "test": "^3.0.1",
     "testrunner": "^1.0.4"
   }
 }

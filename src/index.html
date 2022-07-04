@@ -1,28 +1,33 @@
 <!DOCTYPE html>
 <html>
-
+<header>
+    <script src="data.js"></script>
+    <script src="films.js"></script>
+</header>
 <body>
 
     <h1>Sprint 4 IT ACADEMY</h1>
     <h4>Ejercicio 1</h4>
-    <button onclick="getAllDirectors()">ejercicio 1</button>
+    <button onclick="getAllDirectors(movies)">ejercicio 1</button>
     <h4>Ejercicio 2 </h4>
     <p>Recuerda poner los nombre como se debe: "Steven Spielberg" , con mayuculas al principio </p>
     <input type="text" id="nombreDirector">
-    <button onclick="getMoviesFromDirector()">enviar</button>
+    <button onclick="getMoviesFromDirector(movies,director)">enviar</button>
     <p>Ejercicio 3</p>
     <input type="text" id="nombreDirector2">
-    <button  onclick="moviesAverageOfDirector()" >Enviar</button>
+    <button  onclick="moviesAverageOfDirector(movies)" >Enviar</button>
     <p>Ejercicio 4</p>
-    <button  onclick="orderAlphabetically()" >Ordenar Alfabeticamente </button>
+    <button  onclick="orderAlphabetically(movies)" >Ordenar Alfabeticamente </button>
     <p>Ejercicio 5</p>
-    <button  onclick="orderByYear()" >Ordenar Por año</button>
+    <button  onclick="orderByYear(movies,year)" >Ordenar Por año</button>
     <p>Ejercicio 6</p>
     <input type="text" id="categoria">
-    <button  onclick="moviesAverageByCategory()" >Ordenar Por categoria</button>
+    <button  onclick="moviesAverageByCategory(movies,category)" >Ordenar Por categoria</button>
     <p>Ejercicio 7</p>
-    <button onclick="hoursToMinutes()">En min</button>
+    <button onclick="hoursToMinutes(movies)">En min</button>
+    <p>Ejercicio 8</p>
+    <input type="text" name="" id="yearsOfUser">
+    <button onclick="bestFilmOfYear(movies,year)" >Enviar</button>
 </body>
-<script src="data.js"></script>
-<script src="films.js"></script>
+
 </html>
