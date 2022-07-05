@@ -9,15 +9,16 @@ function getAllDirectors(array) {
 // Exercise 2: Get the films of a certain director
 function getMoviesFromDirector(array, director) {
 
-  const result = array.filter(movie => movie.director === director);
+  const result2 = array.filter(movie => movie.director === director);
   
-  console.log("EXERCICE 2 ->",result);
-  return result;
+  console.log("EXERCICE 2 ->",result2);
+  return result2;
   
-  // const result = array.filter((movie) => movie.director === director);
+   //<-COMO LO HICE A LA PRIMERA POR ESO ESTA COMENTA-> EL ERROR ??? PUES NO LO SE
+  // const result2 = array.filter((movie) => movie.director === director);
 
-  // console.log('EXERCICE 2 ->', result);
-  // return result;
+  // console.log('EXERCICE 2 ->', result2);
+  // return result2;
   
 }
 
@@ -41,18 +42,23 @@ function moviesAverageOfDirector(array, director) {
 
 // Exercise 4:  Alphabetic order by title 
 function orderAlphabetically(array) {
-  let result4 = array.sort((a,b)  =>{
-    if (a.title < b.title){
-      return -1;
-    }
-    if (a.title > b.title){
-      return 1
-    }
-    return 0;
-  })
+
+  //<-COMO LO HICE A LA PRIMERA POR ESO ESTA COMENTA->
+  // let result4 = array.sort((a,b)  =>{
+  //   if (a.title < b.title){
+  //     return -1;
+  //   }
+  //   if (a.title > b.title){
+  //     return 1
+  //   }
+  //   return 0;
+  // })
   
-  console.log("EXERCICE 4 ->" ,result4.slice(0,20));
-  return result4;
+  // console.log("EXERCICE 4 ->" ,result4.slice(0,20));
+  // return result4;
+  const result4 = array.map((movie) => movie.title).sort().slice(0, 20);
+console.log('EXERCICE 4 ->', result4);
+return result4;
 }
 
 // Exercise 5: Order by year, ascending
@@ -67,6 +73,8 @@ let froAbc = forYears.sort((a,b)=> {
     }
     if (a.title > b.title){
       return 1
+    }else{
+      return 0;
     }
   
   }
@@ -77,6 +85,8 @@ let froAbc = forYears.sort((a,b)=> {
 
 // Exercise 6: Calculate the average of the movies in a category
 function moviesAverageByCategory(array,category) {
+   //<-COMO LO HICE A LA PRIMERA POR ESO ESTA COMENTA->
+   
   // let contador = 0;
   // let puntos;
   // const result6 = array.reduce( (puntosTotal, peli) => {
